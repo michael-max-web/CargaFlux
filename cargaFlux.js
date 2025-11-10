@@ -31,3 +31,13 @@ form.addEventListener('submit', (e) => {
   // Redireciona para a tela de login
   window.location.href = 'inicial.html';
 });
+
+// Dashboard simples (versão com o que o Ka aprendeu até agora)
+const botaoAtualizar = document.getElementById("btnAtualizar");
+
+botaoAtualizar.addEventListener("click", function() {
+  document.getElementById("totalCargas").innerText = "25";
+  document.getElementById("emAndamento").innerText = "10";
+  document.getElementById("finalizadas").innerText = "15";
+  document.getElementById("ultimaAtualizacao").innerText = "Atualizado agora";
+});
