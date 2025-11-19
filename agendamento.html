@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Carga - CargaFlux</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Agendamento de Carga</h1>
+
+  <div id="agendamento">
+    <div>
+      <h2>Informações do Motorista</h2>
+      <label>Nome do motorista:</label>
+      <input type="text" id="motorista">
+
+      <label>Placa do veículo:</label>
+      <input type="text" id="placa">
+    </div>
+
+    <div>
+      <h2>Informações da Carga</h2>
+      <label>Valor da carga:</label>
+      <input type="number" id="valor">
+
+      <label>Peso (kg):</label>
+      <input type="number" id="peso">
+
+      <label>Volume:</label>
+      <input type="number" id="volume">
+    </div>
+
+    <div>
+      <h2>Datas</h2>
+      <label>Data de envio para agendamento:</label>
+      <input type="date" id="dataEnvio">
+
+      <label>Data de efetuação (carga/descarga):</label>
+      <input type="date" id="dataEfetuacao">
+    </div>
+
+    <div>
+      <h2>Transportadora e Cliente</h2>
+      <label>Transportadora:</label>
+      <input type="text" id="transportadora">
+
+      <label>Cliente (empresa ou pessoa física):</label>
+      <input type="text" id="cliente">
+    </div>
+
+    <button id="btnAgendar">Agendar Carga</button>
+  </div>
+
+  <script src="cargaFlux.js"></script>
+</body>
+</html>

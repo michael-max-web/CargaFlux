@@ -1,7 +1,7 @@
 body{
-  background: linear-gradient(to bottom, #32435e, #06080a);
-  height: 100vh;
-  margin: 0;
+    background: linear-gradient(to bottom, #32435e, #06080a);
+    height: 100vh;
+    margin: 0;
 }
 #container{
     display: flex;
@@ -13,7 +13,7 @@ body{
     font-family: monospace;
     font-size: 15px;
 }
-
+    
 
 h1{
     color: rgba(45, 75, 109, 0.678);
@@ -21,26 +21,54 @@ h1{
     font-size: 70px;
     text-align: center;
     text-shadow: 0 0 2px #ffffff,
-                 0 0 2px #ffffff,
-                 0 0 2px #ffffff;
-               
+    0 0 2px #ffffff,
+    0 0 2px #ffffff;
+    
 }
 
 button{
-    font-family: monospace
+    font-family: monospace;
     font-size: 15px;
     color: #ffffff;
     background-color: rgb(63, 65, 66) ;
     border-radius: 5px;
 }
+
 button:hover{
     color: #ffffff;
     scale: 1.1;
     box-shadow: 0 0  8px rgb(77, 174, 248);
-
+    
 }
 
 input{
     padding: 2px;
     border-radius: 5px;
+}
+
+#dash{
+   color: antiquewhite;
+}
+#dashboard{
+   background: #bbb;
+}
+
+.inputsCadastro{
+
+}
+
+#btLogin, #btVazar{
+
+}
+
+header{
+    /* formatação */
+}
+
+header form{
+    /* forma */
+}
+
+header form input{
+    /* forma */
 }

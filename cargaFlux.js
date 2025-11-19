@@ -1,4 +1,6 @@
-let usuario; senha
+// inicial.html
+
+let usuario, senha
 function loginUsuario(){
     
 usuario = document.getElementById("inputUsuario").value 
@@ -10,24 +12,43 @@ document.getElementById("inputSenha").value = ''
 document.getElementById('inputUsuario').focus()
 }
 
-const form = document.getElementById('formCadastro');
+let botaoCadastro = document.getElementById("cadastro");
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Impede o envio tradicional do form
+botaoCadastro.onclick = function() {
+    window.location.href = "cadastro.html";
+}
 
-  // Captura os valores digitados
-  const usuario = document.getElementById('usuario').value;
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
 
-  // Cria um objeto com os dados
-  const dadosUsuario = { usuario, email, senha };
+function cadastrarUsuario() {
+  let usuario = document.getElementById("usuario").value;
+  let senha = document.getElementById("senha").value;
 
-  // Salva no localStorage (convertendo para texto)
-  localStorage.setItem('usuarioCadastrado', JSON.stringify(dadosUsuario));
+  // Se os dois campos estiverem preenchidos
+  if (usuario !== "" && senha !== "") {
 
-  alert('Cadastro realizado com sucesso!');
-  
-  // Redireciona para a tela de login
-  window.location.href = 'inicial.html';
-});
+    // Salva no localStorage
+    localStorage.setItem("usuario", usuario);
+    localStorage.setItem("senha", senha);
+
+    // Redireciona
+    window.location.href = "inicial.html";
+
+  } else {
+    alert("Preencha todos os campos!");
+  }
+}
+
+function loginUsuario() {
+
+    let usuarioDigitado = document.getElementById("inputUsuario").value;
+    let senhaDigitada = document.getElementById("inputSenha").value;
+
+    let usuarioSalvo = localStorage.getItem("inputUsuario");
+    let senhaSalva = localStorage.getItem("inputSenha");
+
+    if (usuarioDigitado === usuarioSalvo && senhaDigitada === senhaSalva) {
+        window.location.href = "controle.html";
+    } else {
+        alert("Usuário ou senha incorretos!");
+    }
+}
