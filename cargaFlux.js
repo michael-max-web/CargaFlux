@@ -26,6 +26,7 @@ function cadastrarUsuario() {
   // Se os dois campos estiverem preenchidos
   if (usuario !== "" && senha !== "") {
 
+<<<<<<< HEAD
     // Salva no localStorage
     localStorage.setItem("usuario", usuario);
     localStorage.setItem("senha", senha);
@@ -52,3 +53,20 @@ function loginUsuario() {
         alert("Usuário ou senha incorretos!");
     }
 }
+=======
+  alert('Cadastro realizado com sucesso!');
+  
+  // Redireciona para a tela de login
+  window.location.href = 'inicial.html';
+});
+
+// Dashboard simples (versão com o que o Ka aprendeu até agora)
+const botaoAtualizar = document.getElementById("btnAtualizar");
+
+botaoAtualizar.addEventListener("click", function() {
+  document.getElementById("totalCargas").innerText = "25";
+  document.getElementById("emAndamento").innerText = "10";
+  document.getElementById("finalizadas").innerText = "15";
+  document.getElementById("ultimaAtualizacao").innerText = "Atualizado agora";
+});
+>>>>>>> c600a0036e3d81cc1b31ac527e2a051b1e7a3d44
