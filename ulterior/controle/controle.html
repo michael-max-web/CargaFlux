@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Cargas - CargaFlux</title>
+    <link rel="stylesheet" href="style.css"> <!-- Caso você já tenha um CSS geral -->
+</head>
+<body>
+
+    <header>
+        <h1>CargaFlux - Controle de Cargas</h1>
+        <nav>
+            <button onclick="window.location.href='agendamento.html'">Agendamentos</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='inicial.html'">Sair</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="controle-box">
+            <h2>Registrar Movimentações</h2>
+
+            <div class="form-group">
+                <label for="codigoCarga">Código da Carga</label>
+                <input type="text" id="codigoCarga" placeholder="Ex: CX-3021">
+            </div>
+
+            <div class="form-group">
+                <label for="tipoMov">Tipo de Movimentação</label>
+                <select id="tipoMov">
+                    <option value="">Escolha...</option>
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saída</option>
+                </select>
+            </div>
+
+            <button id="registrarBtn">Registrar</button>
+        </section>
+
+        <section class="lista-box">
+            <h2>Movimentações Registradas</h2>
+            
+            <table id="tabelaMov">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Movimentação</th>
+                        <th>Data/Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS vai preencher aqui -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>
