@@ -4,57 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Cargas - CargaFlux</title>
-    <link rel="stylesheet" href="style.css"> <!-- Caso você já tenha um CSS geral -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-    <header>
-        <h1>CargaFlux - Controle de Cargas</h1>
-        <nav>
-            <button onclick="window.location.href='agendamento.html'">Agendamentos</button>
-            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
-            <button onclick="window.location.href='inicial.html'">Sair</button>
-        </nav>
-    </header>
+<header>
+    <h1>CargaFlux - Controle de Cargas</h1>
+    <nav>
+        <button onclick="window.location.href='../agendamento/agendamento.html'">Agendamentos</button>
+        <button onclick="window.location.href='../dashboard/dashboard.html'">Dashboard</button>
+        <button onclick="window.location.href='../inicial/inicial.html'">Sair</button>
+    </nav>
+</header>
 
-    <main>
-        <section class="controle-box">
-            <h2>Registrar Movimentações</h2>
+<main>
 
-            <div class="form-group">
-                <label for="codigoCarga">Código da Carga</label>
-                <input type="text" id="codigoCarga" placeholder="Ex: CX-3021">
-            </div>
+    <section class="lista-box">
+        <h2>Cargas em Processo</h2>
 
-            <div class="form-group">
-                <label for="tipoMov">Tipo de Movimentação</label>
-                <select id="tipoMov">
-                    <option value="">Escolha...</option>
-                    <option value="entrada">Entrada</option>
-                    <option value="saida">Saída</option>
-                </select>
-            </div>
+        <table id="tabelaControle">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Tipo</th>
+                    <th>Peso</th>
+                    <th>Valor</th>
+                    <th>Agendada Para</th>
+                    <th>Transportadora</th>
+                    <th>Motorista</th>
+                    <th>Placa</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
 
-            <button id="registrarBtn">Registrar</button>
-        </section>
-
-        <section class="lista-box">
-            <h2>Movimentações Registradas</h2>
+            <tbody>
             
-            <table id="tabelaMov">
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Movimentação</th>
-                        <th>Data/Hora</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- JS vai preencher aqui -->
-                </tbody>
-            </table>
-        </section>
-    </main>
+            </tbody>
+        </table>
+
+    </section>
+
+</main>
+
+<script src="controle.js"></script>
 
 </body>
 </html>
