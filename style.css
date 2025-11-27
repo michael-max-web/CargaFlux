@@ -1,74 +1,128 @@
-body{
-    background: linear-gradient(to bottom, #32435e, #06080a);
-    height: 100vh;
+/* ======== CONFIGURAÇÃO BÁSICA ======== */
+body {
     margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333333;
 }
-#container{
+
+/* ======== CONTAINER PADRÃO ======== */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* ======== TÍTULOS ======== */
+h1, h2, h3 {
+    color: #FF4500;
+}
+
+/* ======== INPUTS ======== */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ======== BOTÕES ======== */
+button {
+    background: #FF4500;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #e03e00;
+}
+
+/* ======== TABELAS ======== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background: #FF4500;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+/* ======== BOTÕES PEQUENOS DAS LINHAS ======== */
+.btn-status {
+    background: #333333;
+    padding: 6px 10px;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-delete {
+    background: #FF4500;
+    padding: 6px 10px;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* ======== DASHBOARD / CARDS ======== */
+.dashboard-cards {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    color: rgb(255, 254, 253);
-    font-family: monospace;
-    font-size: 15px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
-    
 
-h1{
-    color: rgba(45, 75, 109, 0.678);
-    font-family: monospace;
-    font-size: 70px;
+.card {
+    flex: 1;
+    min-width: 180px;
+    background: #ffffff;
+    padding: 20px;
     text-align: center;
-    text-shadow: 0 0 2px #ffffff,
-    0 0 2px #ffffff,
-    0 0 2px #ffffff;
-    
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
 }
 
-button{
-    font-family: monospace;
-    font-size: 15px;
-    color: #ffffff;
-    background-color: rgb(63, 65, 66) ;
-    border-radius: 5px;
+.card h3 {
+    color: #FF4500;
+    margin-bottom: 10px;
 }
 
-button:hover{
-    color: #ffffff;
-    scale: 1.1;
-    box-shadow: 0 0  8px rgb(77, 174, 248);
-    
+.card span {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333333;
 }
 
-input{
-    padding: 2px;
-    border-radius: 5px;
+/* ======== LINKS SIMPLES ======== */
+a {
+    text-decoration: none;
+    color: #FF4500;
 }
 
-#dash{
-   color: antiquewhite;
-}
-#dashboard{
-   background: #bbb;
-}
-
-.inputsCadastro{
-
-}
-
-#btLogin, #btVazar{
-
-}
-
-header{
-    /* formatação */
-}
-
-header form{
-    /* forma */
-}
-
-header form input{
-    /* forma */
+a:hover {
+    text-decoration: underline;
 }
