@@ -55,12 +55,20 @@ button:hover {
     opacity: 0.9;
 }
 
-.tabela {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 50px; /* Note: você tem duas regras de margin-top, mantive a última */
-    margin: 25px auto;
+/* ... seu código CSS existente ... */
+
+.tabela select {
+    width: auto; /* Permite que o select se ajuste ao conteúdo, se necessário */
+    padding: 2px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    height: 24px; /* Altura ajustada para caber bem na célula */
 }
+
+/* ... restante do seu código CSS ... */
+
 
 .tabela th, .tabela td {
     border: 1px solid #ccc;

@@ -1,7 +1,8 @@
 function salvar_agendamento() {
     let dt = document.getElementById("DT").value;
-    let nome = document.getElementById("nomeMotorista").value;
     let tipo = document.getElementById("tipo").value;
+    let nome = document.getElementById("nomeMotorista").value;
+    let placa = document.getElementById("placa").value;
     let peso = document.getElementById("peso").value;
     let valor = document.getElementById("valor").value;
     let data = document.getElementById("dataCarga").value;
@@ -17,8 +18,9 @@ function salvar_agendamento() {
 
     arr.push({
         dt: dt,
-        nome: nome,
         tipo: tipo,
+        nome: nome,
+        placa: placa,
         peso: peso,
         valor: valor,
         data: data,
