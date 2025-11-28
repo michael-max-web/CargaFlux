@@ -1,24 +1,31 @@
 function salvar_agendamento() {
+    let dt = document.getElementById("DT").value;
+    let nome = document.getElementById("nomeMotorista").value;
+    let tipo = document.getElementById("tipo").value;
+    let peso = document.getElementById("peso").value;
+    let valor = document.getElementById("valor").value;
+    let data = document.getElementById("dataCarga").value;
+    let hora = document.getElementById("horaCarga").value;
+
     let lista = localStorage.getItem("cargas");
-    let arr = lista ? JSON.parse(lista) : [];
 
-    let carga = {
-        nome: document.getElementById("nomeCarga").value,
-        motorista: document.getElementById("motorista").value,
-        placa: document.getElementById("placa").value,
-        tipo: document.getElementById("tipoCarga").value,
-        peso: document.getElementById("peso").value,
-        origem: document.getElementById("origem").value,
-        destino: document.getElementById("destino").value,
-        data: document.getElementById("dataCarga").value,
-        hora: document.getElementById("horaCarga").value,
-        observacao: document.getElementById("observacao").value,
-        status: "pendente"
-    };
+    let arr = [];
 
-    arr.push(carga);
+    if (lista != null) {
+        arr = JSON.parse(lista);
+    }
+
+    arr.push({
+        dt: dt,
+        nome: nome,
+        tipo: tipo,
+        peso: peso,
+        valor: valor,
+        data: data,
+        hora: hora
+    });
 
     localStorage.setItem("cargas", JSON.stringify(arr));
 
-    alert("Carga salva!");
+    alert("Carga agendada!");
 }

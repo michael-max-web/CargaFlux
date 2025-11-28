@@ -1,128 +1,79 @@
-/* ======== CONFIGURAÇÃO BÁSICA ======== */
+h1 {
+    color: #FF4500; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+
+a {
+    color: #333333;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background: #f4f4f4;
+}
+
+.caixa {
+    width: 90%;
+    max-width: 340px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+h2 {
+    text-align: center;
     color: #333333;
 }
 
-/* ======== CONTAINER PADRÃO ======== */
-.container {
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-/* ======== TÍTULOS ======== */
-h1, h2, h3 {
-    color: #FF4500;
-}
-
-/* ======== INPUTS ======== */
 input, select {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 2%;
+    margin-top: 8px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-/* ======== BOTÕES ======== */
 button {
+    width: 100%;
+    padding: 12px;
     background: #FF4500;
-    color: #ffffff;
-    padding: 10px 15px;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:hover {
-    background: #e03e00;
+    opacity: 0.9;
 }
 
-/* ======== TABELAS ======== */
-table {
+.tabela {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 50px; /* Note: você tem duas regras de margin-top, mantive a última */
+    margin: 25px auto;
 }
 
-th, td {
-    padding: 10px;
+.tabela th, .tabela td {
     border: 1px solid #ccc;
-    text-align: left;
-}
-
-th {
-    background: #FF4500;
-    color: #ffffff;
-}
-
-tr:nth-child(even) {
-    background: #f4f4f4;
-}
-
-/* ======== BOTÕES PEQUENOS DAS LINHAS ======== */
-.btn-status {
-    background: #333333;
-    padding: 6px 10px;
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.btn-delete {
-    background: #FF4500;
-    padding: 6px 10px;
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-/* ======== DASHBOARD / CARDS ======== */
-.dashboard-cards {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.card {
-    flex: 1;
-    min-width: 180px;
+    padding: 8px;
     background: #ffffff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    border: 1px solid #ccc;
-}
-
-.card h3 {
-    color: #FF4500;
-    margin-bottom: 10px;
-}
-
-.card span {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333333;
-}
-
-/* ======== LINKS SIMPLES ======== */
-a {
-    text-decoration: none;
-    color: #FF4500;
-}
-
-a:hover {
-    text-decoration: underline;
+    /* max-width: 20px; <-- Removi ou ajustei se estiver causando problemas de layout, pois 20px é muito pequeno. */
+    
+    /* 👇 Adicionado para diminuir a fonte (exemplo: 12px) */
+    font-size: 12px; 
+    
+    /* 👇 Adicionado para centralizar o texto horizontalmente */
+    text-align: center; 
+    
+    /* 👇 Adicionado para centralizar o texto verticalmente (útil se as células tiverem altura diferente) */
+    vertical-align: middle; 
 }

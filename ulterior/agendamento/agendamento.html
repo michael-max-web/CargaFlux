@@ -1,35 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Agendar Carga</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style.css">
-</head>
+    <title>Agendamento</title>
 <body>
 
 <div class="caixa">
     <h2>Agendamento</h2>
 
-    <input id="nomeCarga" placeholder="Nome da carga">
-    <input id="motorista" placeholder="Motorista">
-    <input id="placa" placeholder="Placa do caminhão">
-
-    <select id="tipoCarga">
-        <option value="">Tipo de Carga</option>
-        <option>Carga</option>
-        <option>Descarga</option>
-        <option>Transf. Carga</option>
-        <option>Transf. Descarga</option>
-    </select>
-
-    <input id="peso" placeholder="Peso aproximado (kg)" type="number">
-
-    <input id="origem" placeholder="Origem">
-    <input id="destino" placeholder="Destino">
-
+    <input id="dt" placeholder="DT">
+    <input id="nomeMotorista" placeholder="Nome do Motorista">
+    <input id="tipo" placeholder="Carga / Descarga">
+    <input id="peso" placeholder="Peso">
+    <input id="valor" placeholder="Valor">
     <input id="dataCarga" type="date">
     <input id="horaCarga" type="time">
-
-    <textarea id="observacao" placeholder="Observação (opcional)"></textarea>
 
     <button onclick="salvar_agendamento()">Salvar</button>
 
@@ -40,4 +27,5 @@
 
 <script src="agendamento.js"></script>
 </body>
+</head>
 </html>
