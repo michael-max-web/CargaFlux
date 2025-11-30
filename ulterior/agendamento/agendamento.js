@@ -1,5 +1,5 @@
 function salvar_agendamento() {
-    let dt = document.getElementById("DT").value;
+    let dt = document.getElementById("dt").value;
     let tipo = document.getElementById("tipo").value;
     let nome = document.getElementById("nomeMotorista").value;
     let placa = document.getElementById("placa").value;
@@ -9,7 +9,6 @@ function salvar_agendamento() {
     let hora = document.getElementById("horaCarga").value;
 
     let lista = localStorage.getItem("cargas");
-
     let arr = [];
 
     if (lista != null) {
@@ -24,7 +23,8 @@ function salvar_agendamento() {
         peso: peso,
         valor: valor,
         data: data,
-        hora: hora
+        hora: hora,
+        status: "agendado" // já salva com status padrão
     });
 
     localStorage.setItem("cargas", JSON.stringify(arr));
