@@ -11,6 +11,13 @@ a {
     color: #333333;
 }
 
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     margin: 0;
     padding: 0;

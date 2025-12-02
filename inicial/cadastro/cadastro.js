@@ -8,6 +8,6 @@ function salvar_cadastro() {
     };
 
     localStorage.setItem("cadastro", JSON.stringify(dados));
-    alert("Cadastro feito!");
+    alert("Cadastro realizado!");
     window.location.href = "../login/index.html";
 }

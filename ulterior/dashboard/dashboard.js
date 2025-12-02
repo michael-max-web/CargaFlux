@@ -4,20 +4,35 @@ function ir_agendar() {
 
 function ir_controle() {
     window.location.href = "../controle/controle.html";
-    
-}function carregar_dashboard() {
+}
 
-    let div = document.getElementById("dashboardInfo");
+window.onload = function () {
+    const dataSalva = localStorage.getItem("dataSelecionadaDashboard");
+
+    if (dataSalva) {
+        document.getElementById("filtroData").value = dataSalva;
+        carregar_dashboard();
+    }
+};
+
+document.getElementById("filtroData").addEventListener("change", function () {
+    localStorage.setItem("dataSelecionadaDashboard", this.value);
+});
+
+function carregar_dashboard() {
+
+    const div = document.getElementById("dashboardInfo");
     div.innerHTML = "";
 
-    let filtroData = document.getElementById("filtroData").value;
+    const filtroData = document.getElementById("filtroData").value;
+    const filtroDT = document.getElementById("filtroDT").value; // NOVO FILTRO
 
-    // ❗ Se não tiver data digitada: não mostra nada
     if (!filtroData) {
-        return; 
+        div.innerHTML = "<p>Digite uma data para visualizar o dashboard.</p>";
+        return;
     }
 
-    let lista = localStorage.getItem("cargas");
+    const lista = localStorage.getItem("cargas");
 
     if (!lista) {
         div.innerHTML = "<p>Nenhuma carga cadastrada.</p>";
@@ -26,52 +41,58 @@ function ir_controle() {
 
     let arr = JSON.parse(lista);
 
-    // Filtra pela data exata
+    // 🔹 FILTRA PELA DATA
     arr = arr.filter(c => c.data === filtroData);
 
+    // 🔹 FILTRA PELA DT SE DIGITADO
+    if (filtroDT && filtroDT.trim() !== "") {
+        arr = arr.filter(c => c.dt.toLowerCase().includes(filtroDT.toLowerCase()));
+    }
+
     if (arr.length === 0) {
-        div.innerHTML = "<p>Nenhuma carga encontrada para esta data.</p>";
+        div.innerHTML = "<p>Nenhuma carga encontrada para essa busca.</p>";
         return;
     }
 
-    let clientes = {};
+    const clientes = {};
 
-    for (let i = 0; i < arr.length; i++) {
+    arr.forEach(c => {
+        const cliente = c.cliente || "Sem Cliente";
+        const liberacao = (c.liberacao || "aguardando").toLowerCase();
 
-        let c = arr[i].cliente || "Sem Cliente";
-        let liberacao = arr[i].liberacao || "aguardando";
-
-        if (!clientes[c]) {
-            clientes[c] = {
-                liberados: [],
-                aguardando: []
-            };
+        if (!clientes[cliente]) {
+            clientes[cliente] = { liberados: [], aguardando: [] };
         }
 
-        if (liberacao.toLowerCase() === "liberado") {
-            clientes[c].liberados.push(arr[i]);
+        if (liberacao === "liberado") {
+            clientes[cliente].liberados.push(c);
         } else {
-            clientes[c].aguardando.push(arr[i]);
+            clientes[cliente].aguardando.push(c);
         }
-    }
+    });
 
-    // Criar blocos
-    for (let cliente in clientes) {
+    for (const cliente in clientes) {
 
-        let bloco = document.createElement("div");
+        const bloco = document.createElement("div");
         bloco.classList.add("blocoDashboard");
+
+        const dados = clientes[cliente];
 
         bloco.innerHTML = `
             <h3>Cliente: ${cliente}</h3>
 
-            <p><strong>Liberadas:</strong> ${clientes[cliente].liberados.length}</p>
+            <p><strong>Liberadas:</strong> ${dados.liberados.length}</p>
             <ul>
-                ${clientes[cliente].liberados.map(c => `<li>DT: ${c.dt}</li>`).join("") || "<li>Nenhuma</li>"}
+                ${dados.liberados.length > 0 
+                    ? dados.liberados.map(c => `<li>DT: ${c.dt}</li>`).join("")
+                    : "<li>Nenhuma</li>"}
             </ul>
 
-            <p><strong>Pendente:</strong> ${clientes[cliente].aguardando.length}</p>
+            <p><strong>Pendente:</strong> ${dados.aguardando.length}</p>
             <ul>
-                ${clientes[cliente].aguardando.map(c => `<li>DT: ${c.dt}</li>`).join("") || "<li>Nenhuma</li>"}
+                ${dados.aguardando.length > 0
+                    ? dados.aguardando.map(c => `<li>DT: ${c.dt}</li>`).join("")
+                    : "<li>Nenhuma</li>"}
             </ul>
         `;
 

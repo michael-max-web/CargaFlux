@@ -13,14 +13,20 @@
 <div class="caixaDash">
     <h2>Dashboard</h2>
     
-    <P>
+    <div class="filtros">
+    <label>Filtrar por Data:</label>
     <input type="date" id="filtroData" oninput="carregar_dashboard()">
-    </P>
 
+    <label>DT:</label>
+    <input type="text" id="filtroDT" placeholder="Pesquisar por DT">
+
+    <button onclick="carregar_dashboard()">Buscar</button>
+</div>
     <div id="dashboardInfo"></div>
-
+    
     <button onclick="ir_agendar()">Agendar Carga</button>
     <button onclick="ir_controle()" style="margin-top:10px;">Controle de Cargas</button>
+
 </div>
 
 <script src="dashboard.js"></script>

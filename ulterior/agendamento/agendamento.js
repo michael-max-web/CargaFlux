@@ -1,6 +1,6 @@
 function salvar_agendamento() {
     let dt = document.getElementById("dt").value;
-    let cliente = document.getElementById("cliente").value; // corrigido
+    let cliente = document.getElementById("cliente").value;
     let tipo = document.getElementById("tipo").value;
     let nome = document.getElementById("nomeMotorista").value;
     let placa = document.getElementById("placa").value;
@@ -16,6 +16,17 @@ function salvar_agendamento() {
         arr = JSON.parse(lista);
     }
 
+    let duplicado = arr.some(item =>
+        item.placa === placa &&
+        item.data === data &&
+        item.hora === hora
+    );
+
+    if (duplicado) {
+        alert("Já existe um agendamento para esta PLACA na mesma DATA e HORA!");
+        return;
+    }
+
     arr.push({
         dt: dt,
         cliente: cliente,
@@ -27,7 +38,7 @@ function salvar_agendamento() {
         data: data,
         hora: hora,
         status: "agendado",
-        liberacao: "aguardando" // obrigatório para o dashboard funcionar
+        liberacao: "aguardando"
     });
 
     localStorage.setItem("cargas", JSON.stringify(arr));
