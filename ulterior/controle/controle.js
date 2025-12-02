@@ -11,7 +11,6 @@ function carregar_cargas() {
 
     for (let i = 0; i < arr.length; i++) {
 
-        // Se não existir status, define padrão
         if (!arr[i].status) {
             arr[i].status = "agendado";
         }
@@ -29,13 +28,13 @@ function carregar_cargas() {
 
                 <td>
                     <select onchange="atualizarStatus(${i}, this.value)">
-                        <option ${arr[i].status == "agendado" ? "selected" : ""}>agendado</option>
-                        <option ${arr[i].status == "pátio" ? "selected" : ""}>pátio</option>
-                        <option ${arr[i].status == "doca 1" ? "selected" : ""}>doca 1</option>
-                        <option ${arr[i].status == "doca 2" ? "selected" : ""}>doca 2</option>
-                        <option ${arr[i].status == "doca 3" ? "selected" : ""}>doca 3</option>
-                        <option ${arr[i].status == "doca 4" ? "selected" : ""}>doca 4</option>
-                        <option ${arr[i].status == "finalizado" ? "selected" : ""}>finalizado</option>
+                        <option ${arr[i].status == "agendado" ? "selected" : ""}>Agendado</option>
+                        <option ${arr[i].status == "pátio" ? "selected" : ""}>Pátio</option>
+                        <option ${arr[i].status == "doca 1" ? "selected" : ""}>Doca 1</option>
+                        <option ${arr[i].status == "doca 2" ? "selected" : ""}>Doca 2</option>
+                        <option ${arr[i].status == "doca 3" ? "selected" : ""}>Doca 3</option>
+                        <option ${arr[i].status == "doca 4" ? "selected" : ""}>Doca 4</option>
+                        <option ${arr[i].status == "finalizado" ? "selected" : ""}>Finalizado</option>
                     </select>
                 </td>
 
