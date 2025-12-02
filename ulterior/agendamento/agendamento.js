@@ -1,5 +1,6 @@
 function salvar_agendamento() {
     let dt = document.getElementById("dt").value;
+    let cliente = document.getElementById("cliente").value; // corrigido
     let tipo = document.getElementById("tipo").value;
     let nome = document.getElementById("nomeMotorista").value;
     let placa = document.getElementById("placa").value;
@@ -17,6 +18,7 @@ function salvar_agendamento() {
 
     arr.push({
         dt: dt,
+        cliente: cliente,
         tipo: tipo,
         nome: nome,
         placa: placa,
@@ -24,7 +26,8 @@ function salvar_agendamento() {
         valor: valor,
         data: data,
         hora: hora,
-        status: "agendado" // já salva com status padrão
+        status: "agendado",
+        liberacao: "aguardando" // obrigatório para o dashboard funcionar
     });
 
     localStorage.setItem("cargas", JSON.stringify(arr));

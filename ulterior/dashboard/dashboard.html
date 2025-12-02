@@ -10,8 +10,14 @@
 
     <h1>CargaFlux</h1>
 
-<div class="caixa">
+<div class="caixaDash">
     <h2>Dashboard</h2>
+    
+    <P>
+    <input type="date" id="filtroData" oninput="carregar_dashboard()">
+    </P>
+
+    <div id="dashboardInfo"></div>
 
     <button onclick="ir_agendar()">Agendar Carga</button>
     <button onclick="ir_controle()" style="margin-top:10px;">Controle de Cargas</button>
