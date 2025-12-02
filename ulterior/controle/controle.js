@@ -39,6 +39,13 @@ function carregar_cargas() {
                 </td>
 
                 <td>
+                     <select onchange="atualizarLiberacao(${i}, this.value)">
+                        <option ${arr[i].liberacao == "aguardando" ? "selected" : ""}>Aguardando</option>
+                        <option ${arr[i].liberacao == "liberado" ? "selected" : ""}>Liberado</option>
+                    </select>
+                </td>
+
+                <td>
                     <button onclick="excluirCarga(${i})">Excluir</button>
                 </td>
             </tr>
@@ -57,6 +64,12 @@ carregar_cargas();
 function atualizarStatus(indice, novoStatus) {
     let lista = JSON.parse(localStorage.getItem("cargas"));
     lista[indice].status = novoStatus;
+    localStorage.setItem("cargas", JSON.stringify(lista));
+}
+
+function atualizarLiberacao(indice, novoValor) {
+    let lista = JSON.parse(localStorage.getItem("cargas"));
+    lista[indice].liberacao = novoValor;
     localStorage.setItem("cargas", JSON.stringify(lista));
 }
 
