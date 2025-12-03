@@ -1,31 +1,10 @@
-function ir_agendar() {
-    window.location.href = "../agendamento/agendamento.html";
-}
-
-function ir_controle() {
-    window.location.href = "../controle/controle.html";
-}
-
-window.onload = function () {
-    const dataSalva = localStorage.getItem("dataSelecionadaDashboard");
-
-    if (dataSalva) {
-        document.getElementById("filtroData").value = dataSalva;
-        carregar_dashboard();
-    }
-};
-
-document.getElementById("filtroData").addEventListener("change", function () {
-    localStorage.setItem("dataSelecionadaDashboard", this.value);
-});
-
 function carregar_dashboard() {
 
     const div = document.getElementById("dashboardInfo");
     div.innerHTML = "";
 
     const filtroData = document.getElementById("filtroData").value;
-    const filtroDT = document.getElementById("filtroDT").value; // NOVO FILTRO
+    const filtroDT = document.getElementById("filtroDT").value; 
 
     if (!filtroData) {
         div.innerHTML = "<p>Digite uma data para visualizar o dashboard.</p>";
@@ -41,11 +20,25 @@ function carregar_dashboard() {
 
     let arr = JSON.parse(lista);
 
+    // 🔹 PRIMEIRA VALIDAÇÃO → DATA QUE NÃO TEM NENHUM AGENDAMENTO
+    const existeData = arr.some(c => c.data === filtroData);
+    if (!existeData) {
+        div.innerHTML = "<p>Não existe cargas para essa data!</p>";
+        return;
+    }
+
     // 🔹 FILTRA PELA DATA
     arr = arr.filter(c => c.data === filtroData);
 
-    // 🔹 FILTRA PELA DT SE DIGITADO
+    // 🔹 SEGUNDA VALIDAÇÃO → DT QUE NÃO EXISTE
     if (filtroDT && filtroDT.trim() !== "") {
+        const existeDT = arr.some(c => c.dt.toLowerCase() === filtroDT.toLowerCase());
+
+        if (!existeDT) {
+            div.innerHTML = "<p>A DT digitada não existe!</p>";
+            return;
+        }
+
         arr = arr.filter(c => c.dt.toLowerCase().includes(filtroDT.toLowerCase()));
     }
 
@@ -54,6 +47,7 @@ function carregar_dashboard() {
         return;
     }
 
+    // 🔹 AGRUPAMENTO POR CLIENTE
     const clientes = {};
 
     arr.forEach(c => {

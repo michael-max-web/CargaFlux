@@ -86,13 +86,18 @@ function atualizarLiberacao(indice, novoValor) {
 }
 
 function excluirCarga(indice) {
-    let lista = JSON.parse(localStorage.getItem("cargas"));
+    let confirmar = confirm("Tem certeza que deseja excluir esta carga? Essa ação não poderá ser desfeita.");
 
-    lista.splice(indice, 1);
+    if (confirmar === true) {
+        let lista = JSON.parse(localStorage.getItem("cargas"));
 
-    localStorage.setItem("cargas", JSON.stringify(lista));
+        lista.splice(indice, 1);
 
-    alert("Carga excluída com sucesso!");
+        localStorage.setItem("cargas", JSON.stringify(lista));
 
-    location.reload();
+        alert("Carga excluída com sucesso!");
+        location.reload();
+    } else {
+        alert("Exclusão cancelada.");
+    }
 }
