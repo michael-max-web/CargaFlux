@@ -4,7 +4,7 @@ function carregar_dashboard() {
     div.innerHTML = "";
 
     const filtroData = document.getElementById("filtroData").value;
-    const filtroDT = document.getElementById("filtroDT").value; 
+    const filtroDT = document.getElementById("filtroDT").value;
 
     if (!filtroData) {
         div.innerHTML = "<p>Digite uma data para visualizar o dashboard.</p>";
@@ -20,7 +20,7 @@ function carregar_dashboard() {
 
     let arr = JSON.parse(lista);
 
-    // 🔹 PRIMEIRA VALIDAÇÃO → DATA QUE NÃO TEM NENHUM AGENDAMENTO
+    // 🔹 VALIDA SE EXISTE CARGA NA DATA
     const existeData = arr.some(c => c.data === filtroData);
     if (!existeData) {
         div.innerHTML = "<p>Não existe cargas para essa data!</p>";
@@ -30,8 +30,9 @@ function carregar_dashboard() {
     // 🔹 FILTRA PELA DATA
     arr = arr.filter(c => c.data === filtroData);
 
-    // 🔹 SEGUNDA VALIDAÇÃO → DT QUE NÃO EXISTE
+    // 🔹 VALIDA SE A DT EXISTS
     if (filtroDT && filtroDT.trim() !== "") {
+
         const existeDT = arr.some(c => c.dt.toLowerCase() === filtroDT.toLowerCase());
 
         if (!existeDT) {
@@ -39,15 +40,22 @@ function carregar_dashboard() {
             return;
         }
 
+        // 👉 MENSAGEM DA DT ENCONTRADA
+        div.innerHTML = `<p>DT de número ${filtroDT} encontrada!</p>`;
+
         arr = arr.filter(c => c.dt.toLowerCase().includes(filtroDT.toLowerCase()));
+    } else {
+
+        // 👉 MENSAGEM DA PESQUISA POR DATA
+        div.innerHTML = "<p>Esses são os resultados para sua busca!</p>";
     }
 
     if (arr.length === 0) {
-        div.innerHTML = "<p>Nenhuma carga encontrada para essa busca.</p>";
+        div.innerHTML += "<p>Nenhuma carga encontrada para essa busca.</p>";
         return;
     }
 
-    // 🔹 AGRUPAMENTO POR CLIENTE
+    // 🔹 AGRUPA POR CLIENTE
     const clientes = {};
 
     arr.forEach(c => {
@@ -65,6 +73,7 @@ function carregar_dashboard() {
         }
     });
 
+    // 🔹 MONTA O DASHBOARD
     for (const cliente in clientes) {
 
         const bloco = document.createElement("div");
