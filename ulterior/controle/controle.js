@@ -1,24 +1,34 @@
+// Função responsável por receber todas as cargas salvas no localStorage e mostrar dentro da tabela da página
 function carregar_cargas() {
+
+    // Busca a lista de cargas no localStorage
     let lista = localStorage.getItem("cargas");
 
+    // Se não existir nada para a função
     if (lista == null) {
         return;
     }
 
+    // Converte a lista de textos para array ou objeto
     let arr = JSON.parse(lista);
 
+    // Seleciona a tabela onde as linhas serão icluidas
     let tabela = document.getElementById("tabelaCargas");
 
+    // Passa por todas as cargas cadastradas
     for (let i = 0; i < arr.length; i++) {
 
+        // Faz com que cada carga tenha um status padrão
         if (arr[i].status === undefined || arr[i].status === "") {
             arr[i].status = "agendado";
         }
 
+        // Faz com que a coluna Liberação tmb tenha status padrão
         if (arr[i].liberacao === undefined || arr[i].liberacao === "") {
             arr[i].liberacao = "aguardando";
         }
 
+        // Monta uma linha de tabela com os dados da carga
         let linha = `
             <tr>
                 <td>${arr[i].dt}</td>
@@ -57,14 +67,18 @@ function carregar_cargas() {
             </tr>
         `;
 
+        // Crias novas linhas na tabela
         tabela.innerHTML += linha;
     }
 
+    // Salva de volta no localStorage (caso algum dado padrão tenha sido ajustado)
     localStorage.setItem("cargas", JSON.stringify(arr));
 }
 
+// Chama a função de forma automatica quando abro a página
 carregar_cargas();
 
+// Função que atualiza o status de cada carga pelo índice e o novo status escolhido
 function atualizarStatus(indice, novoStatus) {
     let lista = JSON.parse(localStorage.getItem("cargas"));
     lista[indice].status = novoStatus;
@@ -73,6 +87,7 @@ function atualizarStatus(indice, novoStatus) {
     alert("Status Atualizado");
 }
 
+// Função que atualiza o status de liberação e mostra uma mensagem específica caso o motorista seja liberado
 function atualizarLiberacao(indice, novoValor) {
     let lista = JSON.parse(localStorage.getItem("cargas"));
     lista[indice].liberacao = novoValor;
@@ -85,18 +100,24 @@ function atualizarLiberacao(indice, novoValor) {
     }
 }
 
+// Função para excluir carga com mensagem de validação
 function excluirCarga(indice) {
+
+    // Variável para confirmar a ação co mensagem de validação
     let confirmar = confirm("Tem certeza que deseja excluir esta carga? Essa ação não poderá ser desfeita.");
 
     if (confirmar === true) {
+
+        // Pega a lista e remove o item depois salva novamente
         let lista = JSON.parse(localStorage.getItem("cargas"));
-
         lista.splice(indice, 1);
-
         localStorage.setItem("cargas", JSON.stringify(lista));
 
         alert("Carga excluída com sucesso!");
+
+        // Recarrega a página para atualizar a tabela
         location.reload();
+
     } else {
         alert("Exclusão cancelada.");
     }

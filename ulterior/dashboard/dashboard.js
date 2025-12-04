@@ -1,47 +1,55 @@
+// Função que me envia para a tela de agendamento
 function ir_agendar() {
     window.location.href = "../agendamento/agendamento.html";
 }
 
+// Função que me envia para a tela de controle
 function ir_controle() {
     window.location.href = "../controle/controle.html";
 }
 
+// Essa função executa automaticamente quando a página carrega restaurando o filtro de data salvo anteriormente e carregando o dashboard.
 window.onload = function () {
     const dataSalva = localStorage.getItem("dataSelecionadaDashboard");
 
     if (dataSalva) {
         document.getElementById("filtroData").value = dataSalva;
-        carregar_dashboard();
+        carregar_dashboard(); // Recarrega automaticamente com o filtro salvo
     }
 };
 
+// Sempre que a data do filtro for alterada ela será salva no localStorage para permanecer quando a página for recarregada
 document.getElementById("filtroData").addEventListener("change", function () {
     localStorage.setItem("dataSelecionadaDashboard", this.value);
 });
 
+// Função principal que gera o meu dashboard filtrando cargas por data e dt e organizando por cliente em blocos exibindo quantas cargas foram liberadas e quantas estão pendentes
 function carregar_dashboard() {
 
+    // Parte onde o dashboard é exibido na página
     const div = document.getElementById("dashboardInfo");
     div.innerHTML = "";
 
+    // Recebe os filtros digitados
     const filtroData = document.getElementById("filtroData").value;
     const filtroDT = document.getElementById("filtroDT").value;
 
-    // ⚠️ Alert quando o filtro DT estiver preenchido
+    // Mensagem de validação para pesquisa com identificador chave
     if (filtroDT.trim() !== "") {
         const confirmar = confirm(`Deseja filtrar somente a DT ${filtroDT}?`);
         if (confirmar) {
-            // Limpa o filtro de data para mostrar só a DT
+            // limpa a data caso o filtro seja apenas pela DT
             document.getElementById("filtroData").value = "";
         }
     }
 
-    // ➤ Se não tiver data e o usuário escolheu filtrar só pela DT
+    // Se nenhum filtro for preenchido mostra uma mensagem
     if (!filtroData && filtroDT.trim() === "") {
         div.innerHTML = "<p>Digite uma data para visualizar o dashboard.</p>";
         return;
     }
 
+    // Busca todas as cargas e se não houver mostra uma mensagem
     const lista = localStorage.getItem("cargas");
 
     if (!lista) {
@@ -49,25 +57,29 @@ function carregar_dashboard() {
         return;
     }
 
+    // Converte o texto para array
     let arr = JSON.parse(lista);
 
-    // 🔹 FILTRA PELA DATA (somente se houver data)
+    // filtra por data 
     if (filtroData.trim() !== "") {
         arr = arr.filter(c => c.data === filtroData);
     }
 
-    // 🔹 FILTRA POR DT (caso digitado)
+    // filtra por dt
     if (filtroDT.trim() !== "") {
         arr = arr.filter(c => c.dt.toLowerCase().includes(filtroDT.toLowerCase()));
     }
 
+    // Se não encontrou nada após o filtro mostra uma mensagem de resposta da listagem
     if (arr.length === 0) {
         div.innerHTML = "<p>Nenhuma carga encontrada para essa busca.</p>";
         return;
     }
 
+    // Objeto onde cada cliente vai receber suas cargas separadas
     const clientes = {};
 
+    // Agrupa os registros por cliente e tmb por liberados e aguardando
     arr.forEach(c => {
         const cliente = c.cliente || "Sem Cliente";
         const liberacao = (c.liberacao || "aguardando").toLowerCase();
@@ -83,6 +95,7 @@ function carregar_dashboard() {
         }
     });
 
+    // Cria blocos para cada cliente no meu dashboard
     for (const cliente in clientes) {
 
         const bloco = document.createElement("div");
