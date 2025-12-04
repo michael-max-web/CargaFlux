@@ -96,12 +96,20 @@ input, select {
 /* BOTÕES */
 button {
     width: auto;                  /* Largura ajusta-se ao conteúdo */
-    padding: 12px;                /* Espaçamento interno */
+    padding: 9px;                /* Espaçamento interno */
     background: #FF4500;          /* Fundo laranja */
     color: white;                 /* Cor do texto branco */
     border: none;                 /* Sem borda padrão */
     border-radius: 4px;           /* Cantos arredondados */
     cursor: pointer;              /* Cursor muda para "mãozinha" */
+}
+
+#excluirLogin {
+    background: #555555;
+    margin: auto;
+    margin-top: auto;
+    margin-right: 12px;
+
 }
 
 button:hover {

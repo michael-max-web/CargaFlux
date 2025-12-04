@@ -45,6 +45,10 @@ function carregar_dashboard() {
 
     // Se nenhum filtro for preenchido mostra uma mensagem
     if (!filtroData && filtroDT.trim() === "") {
+        div.style.display = "flex";
+        div.style.justifyContent = "center";
+        div.style.alignItems = "center";
+        div.style.textAlign = "center";
         div.innerHTML = "<p>Digite uma data para visualizar o dashboard.</p>";
         return;
     }
@@ -53,6 +57,10 @@ function carregar_dashboard() {
     const lista = localStorage.getItem("cargas");
 
     if (!lista) {
+        div.style.display = "flex";
+        div.style.justifyContent = "center";
+        div.style.alignItems = "center";
+        div.style.textAlign = "center";
         div.innerHTML = "<p>Nenhuma carga cadastrada.</p>";
         return;
     }
@@ -76,7 +84,7 @@ function carregar_dashboard() {
         div.style.justifyContent = "center";
         div.style.alignItems = "center";
         div.style.textAlign = "center";
-        div.innerHTML = "<p>Nenhuma carga encontrada para essa busca!</p>";
+        div.innerHTML = "<p>Nenhuma carga encontrada com essa DT!</p>";
         return;
     }
 
@@ -127,4 +135,29 @@ function carregar_dashboard() {
 
         div.appendChild(bloco);
     }
+}
+
+// Função para excluir o meu cadastro
+function excluirUsuario(usuarioAlvo) {
+    const confirmar = confirm("Tem certeza que deseja excluir este usuário? Essa ação não poderá ser desfeita!");
+    if (!confirmar) return;
+
+    const lista = localStorage.getItem("cadastros");
+    if (!lista) {
+        alert("Nenhum usuário cadastrado.");
+        return;
+    }
+
+    let usuarios = JSON.parse(lista);
+
+    // Exclui o usuário cujo o nome corresponde ao identificador
+    usuarios = usuarios.filter(u => u.usuario !== usuarioAlvo);
+
+    // Salva novamente no localStorage
+    localStorage.setItem("cadastros", JSON.stringify(usuarios));
+
+    alert("Usuário excluído com sucesso.");
+
+    // Redireciona para o cadastro
+    window.location.href = "http://127.0.0.1:5501/inicial/cadastro/cadastro.html";
 }
