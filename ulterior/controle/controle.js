@@ -12,7 +12,7 @@ function carregar_cargas() {
     // Converte a lista de textos para array ou objeto
     let arr = JSON.parse(lista);
 
-    // Seleciona a tabela onde as linhas serão icluidas
+    // Encontra a tabela onde as linhas serão icluidas
     let tabela = document.getElementById("tabelaCargas");
 
     // Passa por todas as cargas cadastradas
@@ -28,7 +28,7 @@ function carregar_cargas() {
             arr[i].liberacao = "aguardando";
         }
 
-        // Monta uma linha de tabela com os dados da carga
+        // Monta uma linha na tabela com os dados da carga usando tags
         let linha = `
             <tr>
                 <td>${arr[i].dt}</td>
@@ -108,7 +108,7 @@ function excluirCarga(indice) {
 
     if (confirmar === true) {
 
-        // Pega a lista e remove o item depois salva novamente
+        // Pega a lista e remove o item pelo indice e depois salva novamente
         let lista = JSON.parse(localStorage.getItem("cargas"));
         lista.splice(indice, 1);
         localStorage.setItem("cargas", JSON.stringify(lista));

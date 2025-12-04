@@ -1,4 +1,3 @@
-/* TÍTULO PRINCIPAL (h1) */
 h1 {
     font-size: 50px;              /* Define o tamanho da fonte do título */
     color: #FF4500;               /* Cor do texto em laranja */
@@ -8,12 +7,12 @@ h1 {
     align-items: center;          /* Centraliza horizontalmente o conteúdo */
 }
 
-/* LINKS (a) */
+/* links */
 a {
     color: #333333;               /* Define a cor do texto dos links como cinza escuro */
 }
 
-/* PARÁGRAFOS (p) */
+/* paragrafors */
 p {
     display: flex;                /* Flexbox para alinhamento do conteúdo */
     flex-direction: column;       /* Itens dispostos em coluna */
@@ -21,7 +20,7 @@ p {
     align-items: center;          /* Centraliza horizontalmente */
 }
 
-/* BODY (CORPO DA PÁGINA) */
+/* body (CORPO DA PÁGINA) */
 body {
     margin: 0;                    /* Remove margens padrão do navegador */
     padding: 0;                   /* Remove padding padrão */
@@ -32,7 +31,7 @@ body {
     flex-direction: column;       /* Coloca elementos em coluna */
 }
 
-/* CAIXA PEQUENA (Login / Cadastro) */
+/* Caixa Login e Cadastro) */
 .caixa {
     display: flex;                /* Flexbox para alinhamento interno */
     flex-direction: column;       /* Elementos internos em coluna */
@@ -47,7 +46,7 @@ body {
     border: 1px solid #ccc;       /* Borda cinza clara */
 }
 
-/* CAIXA MÉDIA (Controle) */
+/* Caixa Controle) */
 .caixaCon {
     display: flex;
     flex-direction: column;
@@ -62,7 +61,7 @@ body {
     border: 1px solid #ccc;
 }
 
-/* CAIXA GRANDE (Dashboard) */
+/* Caixa Dashboard */
 .caixaDash {
     display: flex;
     flex-direction: column;
@@ -130,7 +129,7 @@ button:hover {
     vertical-align: middle;       /* Centraliza verticalmente */
 }
 
-/* GRID DO DASHBOARD */
+/* GRADE DO DASHBOARD */
 #dashboardInfo {
     display: grid;                         /* Layout em grade */
     grid-template-columns: repeat(6, 1fr); /* 6 colunas iguais por linha */
