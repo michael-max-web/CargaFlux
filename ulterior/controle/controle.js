@@ -84,7 +84,7 @@ function atualizarStatus(indice, novoStatus) {
     lista[indice].status = novoStatus;
     localStorage.setItem("cargas", JSON.stringify(lista));
 
-    alert("Status Atualizado");
+    alert("Status atualizado!");
 }
 
 // Função que atualiza o status de liberação e mostra uma mensagem específica caso o motorista seja liberado
@@ -94,9 +94,9 @@ function atualizarLiberacao(indice, novoValor) {
     localStorage.setItem("cargas", JSON.stringify(lista));
 
     if (novoValor === "liberado") {
-        alert("Motorista Liberado");
+        alert("Motorista liberado!");
     } else {
-        alert("Status de liberação atualizado");
+        alert("Status de liberação atualizado!");
     }
 }
 
@@ -104,7 +104,7 @@ function atualizarLiberacao(indice, novoValor) {
 function excluirCarga(indice) {
 
     // Variável para confirmar a ação co mensagem de validação
-    let confirmar = confirm("Tem certeza que deseja excluir esta carga? Essa ação não poderá ser desfeita.");
+    let confirmar = confirm("Tem certeza que deseja excluir esta carga? Essa ação não poderá ser desfeita!");
 
     if (confirmar === true) {
 
@@ -119,6 +119,6 @@ function excluirCarga(indice) {
         location.reload();
 
     } else {
-        alert("Exclusão cancelada.");
+        alert("Exclusão cancelada!");
     }
 }

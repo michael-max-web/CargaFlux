@@ -12,7 +12,7 @@ function fazer_login() {
 
     // Verifica se o cadastro existe ou não
     if (pegar == null) {
-        alert("Usuário não encontrado.");
+        alert("Usuário não encontrado!");
         return; // Para a função se o cadastro não existir 
     }
 
@@ -27,6 +27,6 @@ function fazer_login() {
 
     } else {
         // Caso houver erros exibe uma mensagem
-        alert("Usuário ou senha incorretos.");
+        alert("Usuário ou senha incorretos!");
     }
 }

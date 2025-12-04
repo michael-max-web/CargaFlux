@@ -72,7 +72,11 @@ function carregar_dashboard() {
 
     // Se não encontrou nada após o filtro mostra uma mensagem de resposta da listagem
     if (arr.length === 0) {
-        div.innerHTML = "<p>Nenhuma carga encontrada para essa busca.</p>";
+        div.style.display = "flex";
+        div.style.justifyContent = "center";
+        div.style.alignItems = "center";
+        div.style.textAlign = "center";
+        div.innerHTML = "<p>Nenhuma carga encontrada para essa busca!</p>";
         return;
     }
 
