@@ -1,3 +1,24 @@
+function ir_agendar() {
+    window.location.href = "../agendamento/agendamento.html";
+}
+
+function ir_controle() {
+    window.location.href = "../controle/controle.html";
+}
+
+window.onload = function () {
+    const dataSalva = localStorage.getItem("dataSelecionadaDashboard");
+
+    if (dataSalva) {
+        document.getElementById("filtroData").value = dataSalva;
+        carregar_dashboard();
+    }
+};
+
+document.getElementById("filtroData").addEventListener("change", function () {
+    localStorage.setItem("dataSelecionadaDashboard", this.value);
+});
+
 function carregar_dashboard() {
 
     const div = document.getElementById("dashboardInfo");
@@ -6,7 +27,17 @@ function carregar_dashboard() {
     const filtroData = document.getElementById("filtroData").value;
     const filtroDT = document.getElementById("filtroDT").value;
 
-    if (!filtroData) {
+    // ⚠️ Alert quando o filtro DT estiver preenchido
+    if (filtroDT.trim() !== "") {
+        const confirmar = confirm(`Deseja filtrar somente a DT ${filtroDT}?`);
+        if (confirmar) {
+            // Limpa o filtro de data para mostrar só a DT
+            document.getElementById("filtroData").value = "";
+        }
+    }
+
+    // ➤ Se não tiver data e o usuário escolheu filtrar só pela DT
+    if (!filtroData && filtroDT.trim() === "") {
         div.innerHTML = "<p>Digite uma data para visualizar o dashboard.</p>";
         return;
     }
@@ -20,42 +51,21 @@ function carregar_dashboard() {
 
     let arr = JSON.parse(lista);
 
-    // 🔹 VALIDA SE EXISTE CARGA NA DATA
-    const existeData = arr.some(c => c.data === filtroData);
-    if (!existeData) {
-        div.innerHTML = "<p>Não existe cargas para essa data!</p>";
-        return;
+    // 🔹 FILTRA PELA DATA (somente se houver data)
+    if (filtroData.trim() !== "") {
+        arr = arr.filter(c => c.data === filtroData);
     }
 
-    // 🔹 FILTRA PELA DATA
-    arr = arr.filter(c => c.data === filtroData);
-
-    // 🔹 VALIDA SE A DT EXISTS
-    if (filtroDT && filtroDT.trim() !== "") {
-
-        const existeDT = arr.some(c => c.dt.toLowerCase() === filtroDT.toLowerCase());
-
-        if (!existeDT) {
-            div.innerHTML = "<p>A DT digitada não existe!</p>";
-            return;
-        }
-
-        // 👉 MENSAGEM DA DT ENCONTRADA
-        div.innerHTML = `<p>DT de número ${filtroDT} encontrada!</p>`;
-
+    // 🔹 FILTRA POR DT (caso digitado)
+    if (filtroDT.trim() !== "") {
         arr = arr.filter(c => c.dt.toLowerCase().includes(filtroDT.toLowerCase()));
-    } else {
-
-        // 👉 MENSAGEM DA PESQUISA POR DATA
-        div.innerHTML = "<p>Esses são os resultados para sua busca!</p>";
     }
 
     if (arr.length === 0) {
-        div.innerHTML += "<p>Nenhuma carga encontrada para essa busca.</p>";
+        div.innerHTML = "<p>Nenhuma carga encontrada para essa busca.</p>";
         return;
     }
 
-    // 🔹 AGRUPA POR CLIENTE
     const clientes = {};
 
     arr.forEach(c => {
@@ -73,7 +83,6 @@ function carregar_dashboard() {
         }
     });
 
-    // 🔹 MONTA O DASHBOARD
     for (const cliente in clientes) {
 
         const bloco = document.createElement("div");
