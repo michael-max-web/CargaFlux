@@ -137,7 +137,7 @@ function carregar_dashboard() {
     }
 }
 
-// Função para excluir o meu cadastro
+// Função para excluir cadastro
 function excluirUsuario(usuarioAlvo) {
     const confirmar = confirm("Tem certeza que deseja excluir este usuário? Essa ação não poderá ser desfeita!");
     if (!confirmar) return;
