@@ -3,12 +3,12 @@ function salvar_agendamento() {
 
     // Recebe os dados digitados nos meus inputs ou campos de formulário
     let dt = document.getElementById("dt").value;
-    let cliente = document.getElementById("cliente").value;
     let tipo = document.getElementById("tipo").value;
+    let veiculo = document.getElementById("veiculo").value;
+    let cliente = document.getElementById("cliente").value;
     let nome = document.getElementById("nomeMotorista").value;
     let placa = document.getElementById("placa").value;
     let peso = document.getElementById("peso").value;
-    let valor = document.getElementById("valor").value;
     let data = document.getElementById("dataCarga").value;
     let hora = document.getElementById("horaCarga").value;
 
@@ -39,12 +39,12 @@ function salvar_agendamento() {
     // Se não houver nada duplicado inclui o novo agendamento no array
     arr.push({
         dt: dt,
-        cliente: cliente,
         tipo: tipo,
+        veiculo: veiculo,
+        cliente: cliente,
         nome: nome,
         placa: placa,
         peso: peso,
-        valor: valor,
         data: data,
         hora: hora,
         status: "agendado",       // Define o status padrão da carga
@@ -54,6 +54,22 @@ function salvar_agendamento() {
     // Salva o array atualizado como texto no localStorage
     localStorage.setItem("cargas", JSON.stringify(arr));
 
-    // Mostra uma mensagem de cinfirmação
+    // Mostra uma mensagem de confirmação
     alert("Carga agendada!");
+
+    // Limpa os campos depois de agendar
+    limpar_campos();
+}
+
+// Função para limpar todos os campos
+function limpar_campos() {
+    document.getElementById("dt").value = "";
+    document.getElementById("tipo").value = "";
+    document.getElementById("veiculo").value = "";
+    document.getElementById("cliente").value = "";
+    document.getElementById("nomeMotorista").value = "";
+    document.getElementById("placa").value = "";
+    document.getElementById("peso").value = "";
+    document.getElementById("dataCarga").value = "";
+    document.getElementById("horaCarga").value = "";
 }

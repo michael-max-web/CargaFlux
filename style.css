@@ -95,6 +95,7 @@ input, select {
 
 /* BOTÕES */
 button {
+    font-size: 14px;
     width: auto;                  /* Largura ajusta-se ao conteúdo */
     padding: 9px;                /* Espaçamento interno */
     background: #FF4500;          /* Fundo laranja */
@@ -113,7 +114,7 @@ button {
 }
 
 button:hover {
-    opacity: 0.9;                 /* Leve transparência ao passar o mouse */
+    opacity: 0.8;                 /* Leve transparência ao passar o mouse */
 }
 
 /* SELECT DENTRO DA TABELA */

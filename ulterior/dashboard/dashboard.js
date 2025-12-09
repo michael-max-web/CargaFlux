@@ -122,14 +122,14 @@ function carregar_dashboard() {
             <ul>
                 ${dados.liberados.length > 0 
                     ? dados.liberados.map(c => `<li>DT: ${c.dt}</li>`).join("")
-                    : "<li>Nenhuma</li>"}
+                    : "<li>DT: Nenhuma</li>"}
             </ul>
 
             <p><strong>Pendente:</strong> ${dados.aguardando.length}</p>
             <ul>
                 ${dados.aguardando.length > 0
                     ? dados.aguardando.map(c => `<li>DT: ${c.dt}</li>`).join("")
-                    : "<li>Nenhuma</li>"}
+                    : "<li>DT: Nenhuma</li>"}
             </ul>
         `;
 
