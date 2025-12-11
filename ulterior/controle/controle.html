@@ -13,7 +13,15 @@
 <div class="caixaCon">
     <h2>Controle de Cargas</h2>
 
+    <div id="filtro-data">
+    <label for="dataFiltro">Filtrar por Data:</label>
+    <input type="date" id="dataFiltro">
+    <button onclick="filtrarCargas()">Filtrar</button>
+    <button onclick="limparFiltro()">Mostrar Todas</button>
+</div>
+
     <table class="tabela" id="tabelaCargas">
+        <thead>
         <tr>
           <th>DT</th>
           <th>Tipo</th>
@@ -28,6 +36,7 @@
           <th>Liberação</th>
           <th>Ações</th> 
         </tr>
+        </thead>
     </table>
 
     <p style="text-align:center; margin-top:10px;">

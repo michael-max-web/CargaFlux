@@ -16,6 +16,10 @@ window.onload = function () {
         document.getElementById("filtroData").value = dataSalva;
         carregar_dashboard(); // Recarrega automaticamente com o filtro salvo
     }
+    
+    // Garantir que o dashboard carregue mesmo sem filtro salvo (se o input de data estiver vazio e não houver DT)
+    // Se você usa o filtroDT como padrão, pode remover o comentário desta linha:
+    // carregar_dashboard();
 };
 
 // Sempre que a data do filtro for alterada ela será salva no localStorage para permanecer quando a página for recarregada
@@ -114,22 +118,29 @@ function carregar_dashboard() {
         bloco.classList.add("blocoDashboard");
 
         const dados = clientes[cliente];
+        
+        // --- Geração da lista de DTs Liberadas (Sem Contagem) ---
+        const dtLiberadas = dados.liberados.length > 0
+            ? dados.liberados.map(c => `<li>DT: ${c.dt}</li>`).join("")
+            : "<li>DT: Nenhuma</li>";
 
+        // --- Geração da lista de DTs Pendentes (Sem Contagem) ---
+        const dtPendentes = dados.aguardando.length > 0
+            ? dados.aguardando.map(c => `<li>DT: ${c.dt}</li>`).join("")
+            : "<li>DT: Nenhuma</li>";
+            
+        // Monta o bloco SEM A CONTAGEM NUMÉRICA
         bloco.innerHTML = `
             <h3>Cliente: ${cliente}</h3>
 
-            <p><strong>Liberadas:</strong> ${dados.liberados.length}</p>
+            <p><strong>Liberadas:</strong></p>
             <ul>
-                ${dados.liberados.length > 0 
-                    ? dados.liberados.map(c => `<li>DT: ${c.dt}</li>`).join("")
-                    : "<li>DT: Nenhuma</li>"}
+                ${dtLiberadas}
             </ul>
 
-            <p><strong>Pendente:</strong> ${dados.aguardando.length}</p>
+            <p><strong>Pendente:</strong></p>
             <ul>
-                ${dados.aguardando.length > 0
-                    ? dados.aguardando.map(c => `<li>DT: ${c.dt}</li>`).join("")
-                    : "<li>DT: Nenhuma</li>"}
+                ${dtPendentes}
             </ul>
         `;
 

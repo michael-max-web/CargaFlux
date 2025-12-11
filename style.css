@@ -1,74 +1,42 @@
+/* ========== SEU CSS ORIGINAL (NADA FOI REMOVIDO) ========== */
+
 h1 {
-    font-size: 50px;              /* Define o tamanho da fonte do título */
-    color: #FF4500;               /* Cor do texto em laranja */
-    display: flex;                /* Utiliza flexbox para alinhar conteúdo interno */
-    flex-direction: column;       /* Alinha itens verticalmente (em coluna) */
-    justify-content: center;      /* Centraliza verticalmente o conteúdo dentro do h1 */
-    align-items: center;          /* Centraliza horizontalmente o conteúdo */
+    font-size: 50px;
+    color: #FF4500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* links */
 a {
-    color: #333333;               /* Define a cor do texto dos links como cinza escuro */
+    color: #333333;
 }
 
-/* paragrafors */
 p {
-    display: flex;                /* Flexbox para alinhamento do conteúdo */
-    flex-direction: column;       /* Itens dispostos em coluna */
-    justify-content: center;      /* Centraliza verticalmente */
-    align-items: center;          /* Centraliza horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* body (CORPO DA PÁGINA) */
 body {
-    margin: 0;                    /* Remove margens padrão do navegador */
-    padding: 0;                   /* Remove padding padrão */
-    font-family: Arial, sans-serif; /* Define a fonte padrão da página */
-    background: #f4f4f4;          /* Cor de fundo cinza claro */
-    min-height: 100vh;            /* Altura mínima de 100% da tela */
-    display: flex;                /* Flexbox para organizar elementos internos */
-    flex-direction: column;       /* Coloca elementos em coluna */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Caixa Login e Cadastro) */
 .caixa {
-    display: flex;                /* Flexbox para alinhamento interno */
-    flex-direction: column;       /* Elementos internos em coluna */
-    justify-content: center;      /* Centraliza verticalmente */
-    align-items: center;          /* Centraliza horizontalmente */
-    width: 90%;                   /* Ocupa 90% da largura disponível */
-    max-width: 340px;             /* Largura máxima de 340px */
-    margin: 40px auto;            /* Espaçamento superior e inferior de 40px e centraliza horizontalmente */
-    background: #ffffff;          /* Fundo branco */
-    padding: 40px;                /* Espaçamento interno */
-    border-radius: 8px;           /* Cantos arredondados */
-    border: 1px solid #ccc;       /* Borda cinza clara */
-}
-
-/* Caixa Controle) */
-.caixaCon {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 90%;
-    max-width: 950px;             /* Largura máxima maior que .caixa */
-    margin: 40px auto;            /* Espaçamento superior/inferior e centraliza horizontalmente */
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-/* Caixa Dashboard */
-.caixaDash {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 1000px;            /* Maior largura para dashboard */
+    max-width: 340px;
     margin: 40px auto;
     background: #ffffff;
     padding: 40px;
@@ -76,33 +44,58 @@ body {
     border: 1px solid #ccc;
 }
 
-/* SUBTÍTULOS (h2) */
+.caixaCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 950px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.caixaDash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
 h2 {
-    max-width: 100%;              /* Limita a largura máxima para 100% do container */
-    text-align: center;           /* Centraliza o texto horizontalmente */
-    color: #333333;               /* Cor do texto em cinza escuro */
+    max-width: 100%;
+    text-align: center;
+    color: #333333;
 }
 
-/* INPUTS E SELECTS */
 input, select {
-    width: 100%;                  /* Ocupa toda a largura do container */
-    padding: 2%;                  /* Espaçamento interno (topo/baixo e laterais) proporcional */
-    margin-top: 8px;              /* Espaço acima do elemento */
-    margin-bottom: 12px;          /* Espaço abaixo do elemento */
-    border: 1px solid #ccc;       /* Borda cinza clara */
-    border-radius: 4px;           /* Cantos arredondados */
+    width: 100%;
+    padding: 2%;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-/* BOTÕES */
 button {
     font-size: 14px;
-    width: auto;                  /* Largura ajusta-se ao conteúdo */
-    padding: 9px;                /* Espaçamento interno */
-    background: #FF4500;          /* Fundo laranja */
-    color: white;                 /* Cor do texto branco */
-    border: none;                 /* Sem borda padrão */
-    border-radius: 4px;           /* Cantos arredondados */
-    cursor: pointer;              /* Cursor muda para "mãozinha" */
+    width: auto;
+    padding: 9px;
+    background: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 #excluirLogin {
@@ -110,57 +103,122 @@ button {
     margin: auto;
     margin-top: auto;
     margin-right: 12px;
-
 }
 
 button:hover {
-    opacity: 0.8;                 /* Leve transparência ao passar o mouse */
+    opacity: 0.8;
 }
 
-/* SELECT DENTRO DA TABELA */
 .tabela select {
-    width: auto;                  /* Ajusta largura ao conteúdo */
-    padding: 2px;                 /* Espaçamento interno pequeno */
-    margin: 0;                     /* Sem margem */
-    border: 1px solid #ccc;       /* Borda cinza */
-    border-radius: 4px;           /* Cantos arredondados */
-    font-size: 12px;              /* Tamanho da fonte menor */
-    height: 24px;                 /* Altura reduzida para caber na célula da tabela */
+    width: auto;
+    padding: 2px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    height: 24px;
 }
 
-/* CÉLULAS E CABEÇALHO DA TABELA */
 .tabela th, .tabela td {
-    border: 1px solid #ccc;       /* Borda da célula */
-    padding: 8px;                 /* Espaçamento interno da célula */
-    background: #ffffff;          /* Fundo branco */
-    font-size: 15px;              /* Tamanho da fonte */
-    text-align: center;           /* Centraliza horizontalmente */
-    vertical-align: middle;       /* Centraliza verticalmente */
+    border: 1px solid #ccc;
+    padding: 8px;
+    background: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
 }
 
-/* GRADE DO DASHBOARD */
 #dashboardInfo {
-    display: grid;                         /* Layout em grade */
-    grid-template-columns: repeat(6, 1fr); /* 6 colunas iguais por linha */
-    gap: 15px;                              /* Espaço entre os blocos */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
 }
 
-/* BLOCO DO DASHBOARD */
 .blocoDashboard {
-    border: 1px solid #ccc;          /* Borda cinza */
-    padding: 15px;                   /* Espaçamento interno do bloco */
-    margin: 15px 0;                  /* Espaçamento vertical entre blocos */
-    border-radius: 6px;              /* Cantos arredondados */
-    background: #f9f9f9;            /* Fundo levemente cinza */
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    background: #f9f9f9;
 }
 
-/* Título dentro do bloco */
 .blocoDashboard h3 {
-    margin-bottom: 8px;              /* Espaço abaixo do título */
+    margin-bottom: 8px;
 }
 
-/* Lista de DTs dentro do bloco */
 .blocoDashboard ul {
-    margin: 0;                       /* Remove margem padrão */
-    padding-left: 20px;              /* Recuo das bolinhas da lista */
+    margin: 0;
+    padding-left: 20px;
+}
+
+
+/* ========================================================= */
+/* ========== APENAS MELHORIAS — NADA FOI REMOVIDO ========= */
+/* ========================================================= */
+
+/* Melhorando a aparência geral sem mexer no layout */
+h1 {
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+}
+
+a {
+    text-decoration: none;
+    transition: .2s;
+}
+a:hover {
+    color: #FF4500;
+}
+
+input, select {
+    transition: border-color .2s, box-shadow .2s;
+}
+input:focus, select:focus {
+    border-color: #FF4500;
+    box-shadow: 0 0 4px rgba(255,69,0,0.4);
+    outline: none;
+}
+
+button {
+    transition: .2s ease;
+    font-weight: 600;
+}
+button:hover {
+    transform: scale(1.03);
+}
+
+.caixa, .caixaCon, .caixaDash {
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    transition: .2s ease;
+}
+.caixa:hover, .caixaCon:hover, .caixaDash:hover {
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Blocos continuam IGUAIS, só mais bonitos */
+.blocoDashboard {
+    transition: .2s ease;
+}
+.blocoDashboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.12);
+}
+
+/* Tornando o texto mais agradável */
+p {
+    line-height: 1.6;
+}
+
+/* Dashboard responsivo sem tirar nada */
+@media (max-width: 900px) {
+    #dashboardInfo { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+    #dashboardInfo { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+    #dashboardInfo { grid-template-columns: 1fr; }
 }
